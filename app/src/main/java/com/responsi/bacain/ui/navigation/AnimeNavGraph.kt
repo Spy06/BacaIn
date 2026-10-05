@@ -9,16 +9,12 @@ import androidx.navigation.navArgument
 import com.responsi.bacain.ui.screen.DetailScreen
 import com.responsi.bacain.ui.screen.HomeScreen
 
-// ── Route constants ───────────────────────────────────────────────────────────
-
 object Routes {
     const val HOME   = "home"
     const val DETAIL = "detail/{animeId}"
 
     fun detailRoute(animeId: Int) = "detail/$animeId"
 }
-
-// ── NavGraph ──────────────────────────────────────────────────────────────────
 
 @Composable
 fun AnimeNavGraph() {
@@ -37,7 +33,6 @@ fun AnimeNavGraph() {
             )
         }
 
-        // Detail Screen
         composable(
             route = Routes.DETAIL,
             arguments = listOf(

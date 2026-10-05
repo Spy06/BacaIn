@@ -57,7 +57,6 @@ fun HomeScreen(
     val uiState by viewModel.uiState.collectAsState()
     val listState = rememberLazyListState()
 
-    // Infinite scroll — load next page when within 5 items of the bottom
     LaunchedEffect(listState) {
         snapshotFlow {
             val layoutInfo = listState.layoutInfo
@@ -108,7 +107,6 @@ fun HomeScreen(
         ) {
             when (val state = uiState) {
 
-                // ── Loading ───────────────────────────────────────────────
                 is AnimeListUiState.Loading -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
@@ -130,7 +128,6 @@ fun HomeScreen(
                     }
                 }
 
-                // ── Success ───────────────────────────────────────────────
                 is AnimeListUiState.Success -> {
                     LazyColumn(
                         state = listState,
@@ -153,14 +150,12 @@ fun HomeScreen(
                             }
                         }
 
-                        // Bottom spacer
                         item {
                             Spacer(modifier = Modifier.height(16.dp))
                         }
                     }
                 }
 
-                // ── Error ─────────────────────────────────────────────────
                 is AnimeListUiState.Error -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),

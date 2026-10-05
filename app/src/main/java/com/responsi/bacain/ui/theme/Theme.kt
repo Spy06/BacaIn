@@ -4,8 +4,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 
-// ── Dark color scheme (anime-themed) ─────────────────────────────────────────
-
 private val AnimeColorScheme = darkColorScheme(
     primary          = AnimeViolet,
     onPrimary        = AnimeOnPrimary,
@@ -20,8 +18,6 @@ private val AnimeColorScheme = darkColorScheme(
     onSurface        = AnimeOnSurface,
     onSurfaceVariant = AnimeOnSurfaceVar,
 )
-
-// ── Theme ─────────────────────────────────────────────────────────────────────
 
 @Composable
 fun BacaInTheme(

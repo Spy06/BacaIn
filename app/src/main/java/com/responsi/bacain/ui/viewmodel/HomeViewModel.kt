@@ -9,15 +9,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-// ── UI State ──────────────────────────────────────────────────────────────────
-
 sealed class AnimeListUiState {
     object Loading : AnimeListUiState()
     data class Success(val animeList: List<Anime>) : AnimeListUiState()
     data class Error(val message: String) : AnimeListUiState()
 }
-
-// ── ViewModel ─────────────────────────────────────────────────────────────────
 
 class HomeViewModel(
     private val repository: AnimeRepository = AnimeRepository()
@@ -62,7 +58,7 @@ class HomeViewModel(
                     _uiState.value = AnimeListUiState.Success(_animeList.toList())
                     currentPage++
                 }
-                .onFailure { /* Silently ignore pagination errors */ }
+                .onFailure {}
         }
     }
 }

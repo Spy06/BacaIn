@@ -8,8 +8,6 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.unit.sp
 import com.responsi.bacain.R
 
-// ── Poppins font family (custom typography, bundled in res/font) ──────────────
-
 val PoppinsFontFamily = FontFamily(
     Font(R.font.poppins_regular, FontWeight.Normal),
     Font(R.font.poppins_medium, FontWeight.Medium),
@@ -17,8 +15,6 @@ val PoppinsFontFamily = FontFamily(
     Font(R.font.poppins_bold, FontWeight.Bold),
     Font(R.font.poppins_extrabold, FontWeight.ExtraBold),
 )
-
-// ── Material3 typography using Poppins ────────────────────────────────────────
 
 val Typography = Typography(
     displayLarge = TextStyle(

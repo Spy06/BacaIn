@@ -64,7 +64,6 @@ fun DetailScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // Trigger load when screen opens
     LaunchedEffect(animeId) {
         viewModel.loadDetail(animeId)
     }
@@ -104,7 +103,6 @@ fun DetailScreen(
         ) {
             when (val state = uiState) {
 
-                // ── Loading ───────────────────────────────────────────────
                 is AnimeDetailUiState.Loading -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
@@ -126,12 +124,10 @@ fun DetailScreen(
                     }
                 }
 
-                // ── Success ───────────────────────────────────────────────
                 is AnimeDetailUiState.Success -> {
                     AnimeDetailContent(anime = state.anime)
                 }
 
-                // ── Error ─────────────────────────────────────────────────
                 is AnimeDetailUiState.Error -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
@@ -178,8 +174,6 @@ fun DetailScreen(
     }
 }
 
-// ── Detail content ────────────────────────────────────────────────────────────
-
 @Composable
 private fun AnimeDetailContent(anime: Anime) {
     val scrollState = rememberScrollState()
@@ -192,7 +186,6 @@ private fun AnimeDetailContent(anime: Anime) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 
-        // ── Header card with gradient border ──────────────────────────────
         Surface(
             color = AnimeDarkCard,
             shape = RoundedCornerShape(20.dp),
@@ -200,7 +193,6 @@ private fun AnimeDetailContent(anime: Anime) {
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
 
-                // Title
                 Text(
                     text = anime.title,
                     style = MaterialTheme.typography.headlineMedium,
@@ -208,7 +200,6 @@ private fun AnimeDetailContent(anime: Anime) {
                     color = MaterialTheme.colorScheme.onSurface
                 )
 
-                // English title
                 anime.titleEnglish?.takeIf { it != anime.title }?.let { eng ->
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
@@ -218,7 +209,6 @@ private fun AnimeDetailContent(anime: Anime) {
                     )
                 }
 
-                // Japanese title
                 anime.titleJapanese?.let { jp ->
                     Text(
                         text = jp,
@@ -229,7 +219,6 @@ private fun AnimeDetailContent(anime: Anime) {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Score + Status row
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -242,7 +231,6 @@ private fun AnimeDetailContent(anime: Anime) {
             }
         }
 
-        // ── Info card ─────────────────────────────────────────────────────
         SectionCard(title = "Informasi") {
             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 InfoRow(label = "Judul", value = anime.title)
@@ -266,7 +254,6 @@ private fun AnimeDetailContent(anime: Anime) {
             }
         }
 
-        // ── Genres & Themes ───────────────────────────────────────────────
         val allTags = buildList {
             anime.genres?.let { addAll(it.map { g -> g.name }) }
             anime.themes?.let { addAll(it.map { g -> g.name }) }
@@ -285,7 +272,6 @@ private fun AnimeDetailContent(anime: Anime) {
             }
         }
 
-        // ── Synopsis ──────────────────────────────────────────────────────
         anime.synopsis?.let { synopsis ->
             SectionCard(title = "Sinopsis") {
                 Text(
@@ -297,7 +283,6 @@ private fun AnimeDetailContent(anime: Anime) {
             }
         }
 
-        // ── Background ───────────────────────────────────────────────────
         anime.background?.let { bg ->
             SectionCard(title = "Latar Belakang") {
                 Text(
@@ -312,8 +297,6 @@ private fun AnimeDetailContent(anime: Anime) {
         Spacer(modifier = Modifier.height(16.dp))
     }
 }
-
-// ── Section card wrapper ──────────────────────────────────────────────────────
 
 @Composable
 private fun SectionCard(
@@ -333,7 +316,6 @@ private fun SectionCard(
                 color = AnimeVioletLight
             )
             Spacer(modifier = Modifier.height(12.dp))
-            // Divider line
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -349,8 +331,6 @@ private fun SectionCard(
         }
     }
 }
-
-// ── Status chip ───────────────────────────────────────────────────────────────
 
 @Composable
 private fun StatusChip(status: String) {

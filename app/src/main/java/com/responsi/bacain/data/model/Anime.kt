@@ -2,8 +2,6 @@ package com.responsi.bacain.data.model
 
 import com.google.gson.annotations.SerializedName
 
-// ── Response wrapper ──────────────────────────────────────────────────────────
-
 data class AnimeListResponse(
     @SerializedName("pagination") val pagination: Pagination?,
     @SerializedName("data") val data: List<Anime>
@@ -12,8 +10,6 @@ data class AnimeListResponse(
 data class AnimeDetailResponse(
     @SerializedName("data") val data: Anime
 )
-
-// ── Pagination ────────────────────────────────────────────────────────────────
 
 data class Pagination(
     @SerializedName("last_visible_page") val lastVisiblePage: Int,
@@ -27,8 +23,6 @@ data class PaginationItems(
     @SerializedName("total") val total: Int,
     @SerializedName("per_page") val perPage: Int
 )
-
-// ── Anime ─────────────────────────────────────────────────────────────────────
 
 data class Anime(
     @SerializedName("mal_id") val malId: Int,
@@ -60,8 +54,6 @@ data class Anime(
     @SerializedName("demographics") val demographics: List<Genre>?,
     @SerializedName("studios") val studios: List<Studio>?
 )
-
-// ── Supporting types ──────────────────────────────────────────────────────────
 
 data class AnimeImages(
     @SerializedName("jpg") val jpg: ImageVariants?,

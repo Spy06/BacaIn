@@ -9,15 +9,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-// ── UI State ──────────────────────────────────────────────────────────────────
-
 sealed class AnimeDetailUiState {
     object Loading : AnimeDetailUiState()
     data class Success(val anime: Anime) : AnimeDetailUiState()
     data class Error(val message: String) : AnimeDetailUiState()
 }
-
-// ── ViewModel ─────────────────────────────────────────────────────────────────
 
 class DetailViewModel(
     private val repository: AnimeRepository = AnimeRepository()

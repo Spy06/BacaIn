@@ -39,9 +39,6 @@ import com.responsi.bacain.ui.theme.AnimeViolet
 import com.responsi.bacain.ui.theme.ScoreGold
 import com.responsi.bacain.ui.theme.TagBgColor
 
-/**
- * A card that displays an anime's core info (title, rating, year, episodes).
- */
 @Composable
 fun AnimeCard(
     anime: Anime,
@@ -56,7 +53,6 @@ fun AnimeCard(
         colors = CardDefaults.cardColors(containerColor = AnimeDarkCard),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        // Gradient top stripe
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -70,7 +66,6 @@ fun AnimeCard(
 
         Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
 
-            // ── Type badge + Title ─────────────────────────────────────────
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -91,26 +86,21 @@ fun AnimeCard(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // ── Info row ──────────────────────────────────────────────────
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Score
                 ScoreBadge(score = anime.score)
 
-                // Year
                 anime.year?.let { year ->
                     InfoChip(label = year.toString())
                 }
 
-                // Episodes
                 anime.episodes?.let { eps ->
                     InfoChip(label = "$eps ep")
                 }
             }
 
-            // ── Genres ────────────────────────────────────────────────────
             val genreNames = anime.genres?.take(3)?.map { it.name } ?: emptyList()
             if (genreNames.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(8.dp))
@@ -123,8 +113,6 @@ fun AnimeCard(
         }
     }
 }
-
-// ── Helper composables ────────────────────────────────────────────────────────
 
 @Composable
 private fun TypeBadge(type: String) {
