@@ -61,3 +61,11 @@ app/src/main/java/com/responsi/bacain/
 2.  Buka proyek menggunakan Android Studio (Disarankan versi terbaru seperti *Android Studio Iguana/Jellyfish* atau yang mendukung AGP 8+ dan Compose).
 3.  Biarkan Gradle melakukan sinkronisasi (Sync Project with Gradle Files).
 4.  Jalankan aplikasi (Run `app`) pada Emulator atau Perangkat Fisik (Minimum SDK 28).
+
+Screenshoot:
+<img width="1080" height="2424" alt="Screenshot_20261006_053157" src="https://github.com/user-attachments/assets/eb230418-1883-4d55-9494-61b4d779522c" />
+<img width="1080" height="2424" alt="Screenshot_20261006_053210" src="https://github.com/user-attachments/assets/6adaa155-2c5d-4417-97ed-6dc6663e49c3" />
+<img width="1080" height="2424" alt="Screenshot_20261006_053215" src="https://github.com/user-attachments/assets/8bb1df16-6c52-4518-b586-766d936dc6e9" />
+<img width="1080" height="2424" alt="Screenshot_20261006_053226" src="https://github.com/user-attachments/assets/554d9846-ba1f-4637-9711-5682d66cbfb5" />
+
+
